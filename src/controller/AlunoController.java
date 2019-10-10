@@ -27,7 +27,7 @@ public class AlunoController implements Serializable {
 			em.getTransaction().begin();
 			em.merge(_aluno);
 			em.getTransaction().commit();
-			em.close();
+			emf.close();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERRO CONEXÃO" + e, "ERRO SALVAR/ATUALIZAR",
 					JOptionPane.WARNING_MESSAGE);
@@ -41,7 +41,7 @@ public class AlunoController implements Serializable {
 			Query q = em.createNativeQuery("DELETE aluno FROM aluno WHERE id = " + _aluno.getId());
 			q.executeUpdate();
 			em.getTransaction().commit();
-			em.close();
+			emf.close();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERRO CONEXÃO" + e, "ERRO REMOVER", JOptionPane.WARNING_MESSAGE);
 
